@@ -8,7 +8,6 @@ function getMinutesToTomorrow(){
      return Math.round(diffrencMin);
 }
 	
-
 document.write("Current Date: "+now+";");
 document.write("Tommorow Date:"+tomorrow);
 document.write("Minutes to Tomorrow = "+getMinutesToTomorrow());
