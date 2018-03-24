@@ -1,8 +1,7 @@
 var N = prompt("Enter N"),
 	s = prompt("Enter s"),
 	p = prompt("Enter p"),
-    max = s+0.01*p*s,
-    min = s-0.01*p*s,
+   
 	sum = 0,
 	arr = new Array(N),
 	arrRevers = new Array(N);
@@ -10,12 +9,13 @@ var N = prompt("Enter N"),
 	N = Number(N);
 	s = Number(s);
 	p = Number(p);
-
+var max = s+0.01*p*s,
+    min = s-0.01*p*s;
 //console.log(max);
 //console.log(min);
 function getRandomArr(min, max) {
 	for(var i = 0 ; i < N ; i++){
-		arr[i] = Math.round(Math.random() * (max - min)) + min;
+		arr[i] = Number(Math.round(Math.random() * (max - min)) + min).toFixed(2);
 		//console.log(arr[i]);
 	}
  	return arr;
@@ -23,7 +23,7 @@ function getRandomArr(min, max) {
 
 function getReversArr(arr) {
 	for(var i = 0; i < N; i++){
-		arrRevers[i] = Number(parseFloat(1/arr[i].toFixed(3)));
+		arrRevers[i] = Number((1/arr[i]).toFixed(2));
 		console.log(arrRevers[i]);
 	}
  	return arrRevers;
@@ -37,19 +37,19 @@ function sumElementsOfArr(arr){
 	return sum;
 }
 
-function averageHerm(arrRevers){
+function averageHarm(arrRevers){
 	var average = arrRevers.length/sumElementsOfArr(arrRevers);
 	return average;
 }
+
 arr = getRandomArr(min,max);
 arrRevers = getReversArr(arr); 
 sum = sumElementsOfArr(arrRevers);
-console.log(Math.round(averageHerm(arrRevers)));
 
+document.write("Array:"+arr);
+document.write(" Average harmonic = "+Number(averageHarm(arrRevers)).toFixed(2));
+//console.log(Math.round(averageHarm(arrRevers)));
 //console.log(arr);
-
-//console.log(arrRevers);
-
 //console.log(sum);
 
 
