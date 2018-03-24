@@ -1,5 +1,5 @@
 var str = prompt("Enter str");
-console.log(str);
+document.write(str+" ");
 var counter = 0;
 
 for( var i in str){
@@ -11,9 +11,9 @@ for( var i in str){
 		}
 }
 if(counter == 0){
-	consolole.log("Success");
+	document.write("the brackets are correctly");
 }
 if(counter!=0){
-	consolole.log("Failure");
+	document.write("the brackets are ircorrectly");
 }
 
