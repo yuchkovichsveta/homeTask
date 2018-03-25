@@ -3,33 +3,43 @@ var N1 = prompt("Enter 'Number 1'"),
     operation = prompt("Enter 'operation'");
 
 var result = 0;
+var indicator = false;
 
 N1 = Number(N1);
 N2 = Number(N2);
 operation = String(operation);
 
-switch(operation) {
+switch (operation) {
   case '+':  
-    result = N1+N2;
+    result = N1 + N2;
     break
+
   case '-':  
-    result = N1-N2;
+    result = N1 - N2;
     break
+
   case '*':  
-    result = N1*N2;
+    result = N1 * N2;
     break
-   case '/':  
-    result = N1/N2;
+
+  case '/':  
+    result = N1 / N2;
     break
-   case '^':  
-    result = N1**N2;
+
+  case '^':  
+    result = N1 ** N2;
     break
 
   default: 
+    indicator = true;
+    document.write("Ircorrect data; ");
     break
 }
 
-document.write("Result : "+N1+operation+N2+"="+result);
+if (!indicator) {
+   document.write("Result : " + N1 + operation + N2 + " = " + result);
+}
+
 
 
 
