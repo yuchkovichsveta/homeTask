@@ -7,7 +7,7 @@ var result = 0;
 
 function getRandomCoeff() {
 	for(var i = 0 ; i < P ; i++) {
-		arr[i] = Math.round(Math.random() * 20) + 10;
+		arr[i] = +prompt("Enter the coefficients" + i +" ");
 	}
 
  	return arr;
