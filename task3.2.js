@@ -59,15 +59,6 @@ function CountingRoom() {// конструктор
 	    return this.arrEmployee;
     }
 
-    /*
-    this.sumSalaryByForCircle = function () { // суммирует зарплату
-	    var result = 0;  //следующий код работает
-
-	    for (var i = 0; i < this.arrEmployee.length; i++) {
-	    	result += this.arrEmployee[i].salary;
-	    }
-	    return result;
-    }*/
 
     this.findMaxMinAverageSalary = function () { 
     	var min = this.arrEmployee[0].salary;
@@ -76,7 +67,7 @@ function CountingRoom() {// конструктор
  		var minIndex = 0,
  		    maxIndex = 0;
 
- 		for (i = 1; i < this.arrEmployee.length; i++) {
+ 		for (var i = 0; i < this.arrEmployee.length; i++) {
      		 if (this.arrEmployee[i].salary > max) {
      		 	max = this.arrEmployee[i].salary;
      		 	maxIndex = i;
@@ -98,13 +89,64 @@ function CountingRoom() {// конструктор
 
 	    return min;
     }
+
+    this.showDepartmentInfo = function () { // суммирует зарплату
+	  
+		document.write("arrEmployee after sorting by department <br \/>");
+
+	    this.arrEmployee.sort(function(a, b) {
+			return a.department > b.department ? 1: -1;
+	    })
+
+	     this.arrEmployee.forEach(function(elem) { 
+		 	elem.printEmployee(); 
+	    })
+ 	 
+ 	 	
+	     var totalSalary = this.arrEmployee[0].salary, //следующий код работает
+	        totalEmployee = 1,
+	        averSalary = this.arrEmployee[0].salary / totalEmployee,
+	        totalAge = this.arrEmployee[0].age,
+	        averAge = this.arrEmployee[0].age / totalEmployee,
+	        longPeriod = this.arrEmployee[0].period;
+
+	    // document.write(this.arrEmployee[0].age+ " "+ totalAge);
+
+ 		for (var i = 1; i < this.arrEmployee.length; i++) {
+ 			
+ 			 var current = this.arrEmployee[0].department;
+     		 if (current == this.arrEmployee[i].department) {
+     		 	totalSalary += this.arrEmployee[i].salary;
+     		 	totalAge += this.arrEmployee[i].age;
+     		 	totalEmployee += 1;
+     		 	current = this.arrEmployee[i].department;
+     		 	/*document.write("department info: " + this.arrEmployee[0].department + " totalSalary " +
+     		 		totalSalary + " averSalary "+ averSalary + " totalEmployee "+ totalEmployee + " averAge " + averAge +" <br \/>");
+     		 	current = this.arrEmployee[i].department;*/
+     		 } 
+     		 else {
+     		 	averAge = totalAge / totalEmployee;
+     		 	averSalary = totalSalary / totalEmployee; 
+     		    document.write("department info: " + current + " totalSalary " +
+     		 		totalSalary + " averSalary "+ averSalary + " totalEmployee "+ totalEmployee + " averAge " + averAge +" <br \/>");
+     		    totalEmployee = 1;
+     		    current = this.arrEmployee[i].department;
+     		 }
+     		 
+	    }
+	   
+
+	    return this.arrEmployee;
+	}
+	    
 }
 
-var employee = new Employee("Alex", 24, "accounDep1", 123, 12);
-var employee1 = new Employee("Tanya", 45, "salaryDep2", 423, 12);
+var employee = new Employee("Alex", 24, "aDep1", 100, 20);
+var employee1 = new Employee("Tanya", 45, "bDep2", 200, 40);
+var employee2 = new Employee("Sanya", 25, "aDep1", 500, 60);
 var countingRoom = new CountingRoom();
 
-var arrInfoEmployee = [];
+/*var arrInfoEmployee = [];
 	arrInfoEmployee[0] = prompt("Enter name ");
 	arrInfoEmployee[1] = +prompt("Enter age ");
 	arrInfoEmployee[2] = prompt("Enter department ");
@@ -112,7 +154,7 @@ var arrInfoEmployee = [];
 	arrInfoEmployee[4] = +prompt("Enter working period ");
 
 var employee2 = new Employee(arrInfoEmployee[0], +arrInfoEmployee[1], arrInfoEmployee[2],
-   +arrInfoEmployee[3], +arrInfoEmployee[4]);
+   +arrInfoEmployee[3], +arrInfoEmployee[4]);*/
 
 document.write("Setting arrEmployee: <br \/>");
 
@@ -123,6 +165,10 @@ countingRoom.setNewOrDeletEmplyee(employee2);
 document.write("<br \/>");
 
 countingRoom.sortBySalary(); //сортируем по зарплате
+
+document.write("<br \/>");
+
+countingRoom.showDepartmentInfo();
 
 document.write("<br \/>");
 
