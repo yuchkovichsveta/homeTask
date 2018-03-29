@@ -15,43 +15,51 @@ function Employee(name, age, department, salary, experience) { //констру�
 function CountingRoom() {// конструктор
 	this.arrEmployee = new Array(0);
 
-	this.setNewEmplyee = function (employee) {
-		this.arrEmployee.push(employee);
+	this.setNewOrDeletEmplyee = function (employee) {
+		if (typeof(employee) == "object"){
+			this.arrEmployee.push(employee);
+		 	employee.printEmployee(); 
+	        
+		}
+		
+		else { 
+			this.arrEmployee = this.arrEmployee.filter(function(elem) { 
+				return elem.name != employee; 
+			}) 
+
+			document.write("arrEmployee after deleted Alex: <br \/>");
+
+			this.arrEmployee.forEach(function(elem) { 
+		 	    elem.printEmployee(); 
+	        })
+
+		} 
 
 		return this.arrEmployee;
-	}
-	
-	this.deleteEmplyee = function(name) { //не работает пока что
-		var arrEmployeeNew = [];
-
-		for (var i = 0; i < this.arrEmployee.length; i++) {
-			if (this.arrEmployee[i].name != name) {
-				arrEmployeeNew[i] = this.arrEmployee[i];
-			}
-			
-		}
-
-		document.write("<br \/> arrEmployee after removing Alex <br \/>")
-		arrEmployeeNew.forEach(function(elem){ 
-			document.write(elem.printEmployee() + "<br \/>");
-		}) 
-
-		return arrEmployeeNew;
 	}
 	
 	this.sortBySalary = function () { // сортирует по зарплате
 		this.arrEmployee.sort(function(a, b) {
 			return a.salary > b.salary ? 1: -1;
 	    })
+
+	    var result = 0
+		 this.arrEmployee.forEach(function(employee) { 
+		 	return result += employee.salary; //суммирует 
+	    })
+        
+        document.write("arrEmployee after sort method: <br \/>");
+
+        this.arrEmployee.forEach(function(elem) { 
+		 	elem.printEmployee(); 
+	    })
+
+        document.write("sum of Salary = " + result + "<br \/>");
+
+	    return this.arrEmployee;
     }
 
-    this.sumSalary = function (){ // суммирует зарплату
-		var result = this.arrEmployee.reduce(function(prev, curr) { 
-		 	return prev.salary + curr.salary; //суммирует только первых 2, остальные undef
-	    })
-	    return result;
-    }
-    
+    /*
     this.sumSalaryByForCircle = function () { // суммирует зарплату
 	    var result = 0;  //следующий код работает
 
@@ -59,7 +67,7 @@ function CountingRoom() {// конструктор
 	    	result += this.arrEmployee[i].salary;
 	    }
 	    return result;
-    }
+    }*/
 
     this.findMaxMinAverageSalary = function () { 
     	var min = this.arrEmployee[0].salary;
@@ -85,11 +93,11 @@ function CountingRoom() {// конструктор
 		document.write("Min salary = " + min + "; Max salary = " 
 			+ max + "; Average salary = " + average + "<br \/>");
 
-        document.write("Min salary has " + this.arrEmployee[minIndex].name + 
-        	" ; Max salary has " + this.arrEmployee[maxIndex].name);
+        document.write(this.arrEmployee[minIndex].printEmployee() + " has min Salary <br \/>");
+        document.write(this.arrEmployee[maxIndex].printEmployee() + "has max Salary <br \/>");
+
 	    return min;
     }
-
 }
 
 var employee = new Employee("Alex", 24, "accounDep1", 123, 12);
@@ -106,29 +114,22 @@ var arrInfoEmployee = [];
 var employee2 = new Employee(arrInfoEmployee[0], +arrInfoEmployee[1], arrInfoEmployee[2],
    +arrInfoEmployee[3], +arrInfoEmployee[4]);
 
-countingRoom.setNewEmplyee(employee);
-countingRoom.setNewEmplyee(employee1);
-countingRoom.setNewEmplyee(employee2);
-
 document.write("Setting arrEmployee: <br \/>");
 
-for (var i = 0; i < countingRoom.arrEmployee.length; i++) {
-	countingRoom.arrEmployee[i].printEmployee();
-}
+countingRoom.setNewOrDeletEmplyee(employee);
+countingRoom.setNewOrDeletEmplyee(employee1);
+countingRoom.setNewOrDeletEmplyee(employee2);
 
-document.write("arrEmployee after sort method: <br \/>");
+document.write("<br \/>");
 
 countingRoom.sortBySalary(); //сортируем по зарплате
 
-for (var i = 0; i < countingRoom.arrEmployee.length; i++) {
-	countingRoom.arrEmployee[i].printEmployee();
-}
+document.write("<br \/>");
 
-document.write("sumSalary by reduce method: <br \/>" + 
-    countingRoom.sumSalary() + "<br \/>"); // пока не корректно суммирует
+countingRoom.setNewOrDeletEmplyee("Alex");
 
-document.write("sumSalary by for cycle: <br \/>" + countingRoom.sumSalaryByForCircle() + "<br \/>");
+document.write("<br \/>");
 
-countingRoom.findMaxMinAverageSalary(); //ищем мин, макс и среднюю зп*/
+countingRoom.findMaxMinAverageSalary(); //ищем мин, макс и среднюю зп
 
-countingRoom.deleteEmplyee("Alex"); //удаляем работника с именем Алекс
+
