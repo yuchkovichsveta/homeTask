@@ -109,8 +109,8 @@ function CountingRoom() {// конструктор
 	        averSalary = this.arrEmployee[0].salary / totalEmployee,
 	        totalAge = this.arrEmployee[0].age,
 	        averAge = this.arrEmployee[0].age / totalEmployee,
-	        longPeriod = this.arrEmployee[0].period;
-
+	        longExperience = this.arrEmployee[0].experience;
+ 
  		for (var i = 1; i < this.arrEmployee.length; i++) {
  			
  			 var current = this.arrEmployee[0].department;
@@ -119,12 +119,16 @@ function CountingRoom() {// конструктор
      		 	totalAge += this.arrEmployee[i].age;
      		 	totalEmployee += 1;
      		 	current = this.arrEmployee[i].department;
+     		 	if (longExperience <this.arrEmployee[i].experience) {
+     		 		longExperience = this.arrEmployee[i].experience;
+     		 	}
      		 } 
      		 else {
      		 	averAge = totalAge / totalEmployee;
      		 	averSalary = totalSalary / totalEmployee; 
      		    document.write("department info: " + current + " totalSalary " +
-     		 		totalSalary + " averSalary "+ averSalary + " totalEmployee "+ totalEmployee + " averAge " + averAge +" <br \/>");
+     		 		totalSalary + " averSalary "+ averSalary + " totalEmployee "+ totalEmployee + 
+     		 		" averAge " + averAge + " longExperience " + longExperience +" <br \/>");
      		    totalEmployee = 1;
      		    
      		    totalSalary = this.arrEmployee[i].salary;
@@ -132,9 +136,11 @@ function CountingRoom() {// конструктор
 	       		totalAge = this.arrEmployee[i].age,
 	        	averAge = this.arrEmployee[i].age / totalEmployee,
      		    current = this.arrEmployee[i].department;
+     		    longExperience = this.arrEmployee[i].experience;
 
      		    document.write("department info: " + current + " totalSalary " +
-     		 		totalSalary + " averSalary "+ averSalary + " totalEmployee "+ totalEmployee + " averAge " + averAge +" <br \/>");
+     		 		totalSalary + " averSalary "+ averSalary + " totalEmployee "+
+     		 		totalEmployee + " averAge " + averAge + " longExperience " + longExperience +" <br \/>");
      		 }
      		 
 	    }
@@ -149,21 +155,22 @@ var employee1 = new Employee("Tanya", 45, "bDep2", 200, 40);
 var employee2 = new Employee("Sanya", 25, "aDep1", 500, 60);
 var countingRoom = new CountingRoom();
 
-/*var arrInfoEmployee = [];
+var arrInfoEmployee = [];
 	arrInfoEmployee[0] = prompt("Enter name ");
 	arrInfoEmployee[1] = +prompt("Enter age ");
 	arrInfoEmployee[2] = prompt("Enter department ");
 	arrInfoEmployee[3] = +prompt("Enter salary ");
 	arrInfoEmployee[4] = +prompt("Enter working period ");
 
-var employee2 = new Employee(arrInfoEmployee[0], +arrInfoEmployee[1], arrInfoEmployee[2],
-   +arrInfoEmployee[3], +arrInfoEmployee[4]);*/
+var employee3 = new Employee(arrInfoEmployee[0], +arrInfoEmployee[1], arrInfoEmployee[2],
+   +arrInfoEmployee[3], +arrInfoEmployee[4]);
 
 document.write("Setting arrEmployee: <br \/>");
 
 countingRoom.setNewOrDeletEmplyee(employee);
 countingRoom.setNewOrDeletEmplyee(employee1);
 countingRoom.setNewOrDeletEmplyee(employee2);
+countingRoom.setNewOrDeletEmplyee(employee3);
 
 document.write("<br \/>");
 
