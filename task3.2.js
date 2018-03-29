@@ -101,16 +101,15 @@ function CountingRoom() {// конструктор
 	     this.arrEmployee.forEach(function(elem) { 
 		 	elem.printEmployee(); 
 	    })
+
+	    document.write("<br \/>Testing departmentInfo method: <br \/>")
  	 
- 	 	
-	     var totalSalary = this.arrEmployee[0].salary, //следующий код работает
+	    var totalSalary = this.arrEmployee[0].salary, //следующий код работает
 	        totalEmployee = 1,
 	        averSalary = this.arrEmployee[0].salary / totalEmployee,
 	        totalAge = this.arrEmployee[0].age,
 	        averAge = this.arrEmployee[0].age / totalEmployee,
 	        longPeriod = this.arrEmployee[0].period;
-
-	    // document.write(this.arrEmployee[0].age+ " "+ totalAge);
 
  		for (var i = 1; i < this.arrEmployee.length; i++) {
  			
@@ -120,9 +119,6 @@ function CountingRoom() {// конструктор
      		 	totalAge += this.arrEmployee[i].age;
      		 	totalEmployee += 1;
      		 	current = this.arrEmployee[i].department;
-     		 	/*document.write("department info: " + this.arrEmployee[0].department + " totalSalary " +
-     		 		totalSalary + " averSalary "+ averSalary + " totalEmployee "+ totalEmployee + " averAge " + averAge +" <br \/>");
-     		 	current = this.arrEmployee[i].department;*/
      		 } 
      		 else {
      		 	averAge = totalAge / totalEmployee;
@@ -130,12 +126,19 @@ function CountingRoom() {// конструктор
      		    document.write("department info: " + current + " totalSalary " +
      		 		totalSalary + " averSalary "+ averSalary + " totalEmployee "+ totalEmployee + " averAge " + averAge +" <br \/>");
      		    totalEmployee = 1;
+     		    
+     		    totalSalary = this.arrEmployee[i].salary;
+	        	averSalary = this.arrEmployee[i].salary / totalEmployee,
+	       		totalAge = this.arrEmployee[i].age,
+	        	averAge = this.arrEmployee[i].age / totalEmployee,
      		    current = this.arrEmployee[i].department;
+
+     		    document.write("department info: " + current + " totalSalary " +
+     		 		totalSalary + " averSalary "+ averSalary + " totalEmployee "+ totalEmployee + " averAge " + averAge +" <br \/>");
      		 }
      		 
 	    }
 	   
-
 	    return this.arrEmployee;
 	}
 	    
