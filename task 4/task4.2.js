@@ -1,43 +1,29 @@
+var phStr0 = +prompt("Enter your phoneNumber");
+var phStr1 = "  +375 44 370 2030";
+var phStr2 = " 37329300-20-20";
+var phStr3 = "+373 (25)233 14 20";
+var phStr4 = "  +375 29 3003390";
+var phArr = [phStr1, phStr2, phStr3, phStr4];
 
-var phStr1 = "+375 29 300-20-20";
-var phStr2 = "35(29)300-20-20";
-var phStr3 = "+37544 23120 20";
-var phStr4 = "+533 3002020";
-// phStr1 = +prompt("Enter phoneNumber");
-// phStr2 = +prompt("Enter phoneNumber2");
+var regExp = /^\s*\+?375([\s]?((29|33|44)|(\((44|29|33)\)))[\s]?)\s?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/;
 
-var refExp = /\s*\+?375[\s ]?(\(?29\)?)|(\(?3{2}\)?)|(\(?4{2}\)?)[\s ]?\d{3}[\s- ]?\d{2}/;
-//var refExp = /\+?3{1}7{1}5{1}[\s(]?29|3{2}|4{2}[)\s]?\d{3}[\s-]?\d{2}/;
+document.write(" Info about your phoneNumber: <br \/>");
 
-//var equality = false;
-
-if (refExp.test(phStr1)){
-	document.write(phStr1 + " is a correct phone Number  <br \/>");
+if (regExp.test(phStr0)) {
+	document.write(phStr0 + " is correct phone Number  <br \/>");
 }
 
 else {
-	document.write(phStr1 + " is a ircorrect phone Number  <br \/>");
+	document.write(phStr1 + " is ircorrect phone Number  <br \/>");
 }
 
-if (refExp.test(phStr2)){
-	document.write(phStr2 + " is a correct phone Number  <br \/>");
-}
+document.write(" My tests of phoneNumbers: <br \/>");
 
-else {
-	document.write(phStr2 + " is a ircorrect phone Number  <br \/>");
-}
-
-if (refExp.test(phStr3)){
-	document.write(phStr3 + " is a correct phone Number  <br \/>");
-}
-
-else {
-	document.write(phStr3 + " is a ircorrect phone Number  <br \/>");
-}
-if (refExp.test(phStr4)){
-	document.write(phStr4 + " is a correct phone Number  <br \/>");
-}
-
-else {
-	document.write(phStr4 + " is a ircorrect phone Number  <br \/>");
+for (var i = 0; i < phArr.length; i++) {
+	if (regExp.test(phArr[i])) {
+	 	document.write(phArr[i]+ " is correct phone Number  <br \/>");
+	}
+	else {
+		document.write(phArr[i] + " is ircorrect phone Number  <br \/>");
+	}
 }
