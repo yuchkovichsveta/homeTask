@@ -10,20 +10,21 @@ var regExp = /^\s*\+?375([\s]?((29|33|44)|(\((44|29|33)\)))[\s]?)\s?\d{3}[\s-]?\
 document.write(" Info about your phoneNumber: <br \/>");
 
 if (regExp.test(phStr0)) {
-	document.write(phStr0 + " is correct phone Number  <br \/>");
+	document.write("your phoneNumber: " + phStr0 + " is correct <br \/>");
 }
 
 else {
-	document.write(phStr1 + " is ircorrect phone Number  <br \/>");
+	document.write("your phoneNumber: " + phStr0 + " is ircorrect <br \/>");
 }
 
-document.write(" My tests of phoneNumbers: <br \/>");
+
+document.write(" <br \/> My tests of phoneNumbers: <br \/>");
 
 for (var i = 0; i < phArr.length; i++) {
 	if (regExp.test(phArr[i])) {
-	 	document.write(phArr[i]+ " is correct phone Number  <br \/>");
+	 	document.write("phoneNumber: " + phArr[i]+ " is correct <br \/>");
 	}
 	else {
-		document.write(phArr[i] + " is ircorrect phone Number  <br \/>");
+		document.write("phoneNumber: " + phArr[i] + " is ircorrect <br \/>");
 	}
 }
