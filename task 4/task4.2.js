@@ -6,7 +6,7 @@ var phStr4 = "  +375 29 3003390";
 var phArr = [phStr1, phStr2, phStr3, phStr4];
 
 //var regExp = /^\s*\+?375([\s]?((29|33|44)|(\((44|29|33)\)))[\s]?)\s?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/;
-var regExp =/^\s*\+?\s*375\s*\(?(25|29|33|44)\)?\s?\d{3}[\s-]?\d{2}[\s-]?\d{2}/
+var regExp =/^\s*\+?\s*375\s*\(?(25|29|33|44)\)?\s?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/
 
 document.write(" Info about your phoneNumber: <br \/>");
 
