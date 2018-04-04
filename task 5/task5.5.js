@@ -1,8 +1,7 @@
-var n = 100;
+//var n = 100;
 
-//var N = +prompt("Enter Number N", 100);
+var n = +prompt("Enter Number n", 100);
 
-N = 100;
 
 
 var eratosthenes = function(n) {
@@ -44,6 +43,8 @@ var eratosthenes = function(n) {
 
     return output;
 };
+
+
 console.log(eratosthenes(n));
 
 
