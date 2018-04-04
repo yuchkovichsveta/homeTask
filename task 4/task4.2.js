@@ -7,6 +7,7 @@ var phArr = [phStr1, phStr2, phStr3, phStr4];
 
 var regExp = /^\s*\+?375([\s]?((29|33|44)|(\((44|29|33)\)))[\s]?)\s?\d{3}[\s-]?\d{2}[\s-]?\d{2}$/;
 
+
 document.write(" Info about your phoneNumber: <br \/>");
 
 if (regExp.test(phStr0)) {
