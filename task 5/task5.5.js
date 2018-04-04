@@ -44,35 +44,5 @@ var eratosthenes = function(n) {
     return output;
 };
 
-
-console.log(eratosthenes(n));
-
-
- /*
-N = 100;
-for( var p = 2; p < N; p++) {
-	for (var k = 2 * p; k < N; k += p) {
-    	cell.innerHTML = "  ";
-    }
-}*/
-
- /*
-
- function sieve(n){
-	S = []; 
-	S[1] = 0; // 1 - не простое число
-	// заполняем решето единицами
-	for(k=2; k<=n; k++)
-		S[k]=1;
-	
-	for(k=2; k*k<=n; k++){
-		// если k - простое (не вычеркнуто)
-		if(S[k]==1){ 
-			// то вычеркнем кратные k
-			for(l=k*k; l<=n; l+=k){
-				S[l]=0;
-				}
-			}
-	}
-	return S;
-}*/
+var div = document.getElementById("tab").appendChild(document.createElement("div"));
+div.innerHTML = "prime numbers: <br>" + eratosthenes(n);
