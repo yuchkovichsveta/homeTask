@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Realtime Form Validation</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/formhack.css">
+
+</head>
+<body>
+
+	<div class="container">
+		<form class="registration" id="registration">
+			<h1>Valodation Form</h1>
+
+			<label for="username">
+				<span>Name</span>
+
+				<input type="text" id="username" minlength="3" required>
+
+				<ul class="input-requirements">
+					<li> 3 -20 characters </li>
+					<li>Must only contain letters or one - or one space</li>
+				</ul>
+			</label>
+
+			<label for="userAge">
+				<span>Age</span>
+
+				<input type="text" id="userAge" required>
+
+				<ul class="input-requirements">
+					
+					<li> Age if between 14 and 90</li>
+				</ul>
+			</label>
+
+			<label for="userEmail">
+				<span>Email</span>
+
+				<input type="text" id="userEmail" required>
+
+				<ul class="input-requirements">
+					<li> Email contains correct characters</li>
+				</ul>
+			</label>
+
+
+			<label for="userSite">
+				<span>Site</span>
+				<input type="text" id="userSite" required>
+
+				<ul class="input-requirements">
+					<li> Site contains correct characters</li>
+				</ul>
+			</label>
+
+			<label for="userPhone">
+				<span>Phone</span>
+				<input type="text" id="userPhone" required>
+
+				<ul class="input-requirements">
+					<li> Phone Number contains correct characters</li>
+				</ul>
+			</label>
+			<br>
+
+           	<input type="submit" id = "idButton">
+			
+
+		</form>
+	</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

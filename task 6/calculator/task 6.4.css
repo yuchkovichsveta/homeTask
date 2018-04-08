@@ -1,0 +1,35 @@
+
+        div input {
+           /* margin-bottom: 15px;*/
+            font-size: 20px;
+             height:40px;
+            width:40px;
+            background-color: lightgray;
+            text-align: right;
+            font-family: 'Exo 2', sans-serif;
+            border-bottom: 5px solid #336699;
+        }
+
+        #idCulcBody {
+            width: 180px;
+            border: 1px solid #999;
+            border-radius: 10px;
+            padding: 10px;
+            background-color: white;
+            margin-top: 30px;
+        }
+
+        #idCalcul {
+            font-size: 24px;
+            background-color: lightgray;
+            text-align: right;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color:#3d4543;
+            border-radius:10px;
+            left:40%;
+        }
+
+      

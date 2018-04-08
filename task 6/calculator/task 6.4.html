@@ -1,0 +1,55 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title></title>
+ 	<link rel="stylesheet" href="task 6.4.css" type="text/css">
+ </head>
+ <body>
+
+  <p id ="idCulcAll">
+    <input type="text" size="12" id="idCalcul" value="0" />
+    <input type="hidden" id="calcMemory" value="0" />
+
+    <div id = idCulcBody>
+      <div>  
+       	  <input type="button" value="AC" onclick='clearDisplay("0")'>  
+    	  <input type="button" value="M" onclick='saveToMemory()'>
+    	  <input type="button" value="MR" onclick='memoryRecall()'>
+    	  <input type="button" value="=" onclick='calculatorEvaluate()'>
+  	   </div>    
+
+  	   <div>
+          <input type="button" value="÷" onclick='valueof("/")'>
+          <input type="button" value="*" onclick='valueof("*")'>
+          <input type="button" value="С" onclick='backSpace()'>
+           <input type="button" value="." onclick='valueof(".")'> 
+       </div>
+
+  	  <div>	  
+    	  <input type="button" value="7" onclick='valueof("7")'>
+          <input type="button" value="8" onclick='valueof("8")'> 
+          <input type="button" value="9" onclick='valueof("9")'> 
+          <input type="button" value="-" onclick='valueof("-")'>
+       </div>
+
+      
+       <div>
+    	   <input type="button" value="4" onclick='valueof("4")'>
+           <input type="button" value="5" onclick='valueof("5")'>
+           <input type="button" value="6" onclick='valueof("6")'>
+           <input type="button" value="+" onclick='valueof("+")'>
+       </div>
+       
+        <div>
+    	     <input type="button" value="1" onclick='valueof("1")'>
+			 <input type="button" value="2" onclick='valueof("2")'>
+			 <input type="button" value="3" onclick='valueof("3")'>
+			 <input type="button" value="0" onclick='valueof("0")' >
+       </div>
+  
+    </div>
+ </p>
+ <script type="text/javascript" src="task6.4.js"></script>
+ </body>
+ </html>
+
