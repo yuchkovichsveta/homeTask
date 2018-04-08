@@ -123,7 +123,8 @@ var userSiteValidityChecks = [
 			//var illegalCharacters = input.value.match(/^(https?|ftp)\:\/\/)?([a-z0-9]{1})((\.[a-z0-9-])|([a-z0-9-]))*\.([a-z]{2,6})(\/?)$/);
 
             var illegalCharacters = input.value.match(/[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi); 
-			return illegalCharacters ? true : !false;
+           
+			return illegalCharacters ? false : true;
 		},
 		invalidityMessage: 'Ircorrect site adress',
 		element: document.querySelector('label[for="userSite"] .input-requirements li:nth-child(1)')
