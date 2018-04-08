@@ -1,20 +1,26 @@
 var str = prompt("Enter str");
+var counterDiffr = 0;
 var counter = 0;
 
-document.write(str + "; ");
 
-for (var i in str) {
-	if (str[i] == "(") {
+for( var i = 0; i < str.length; i++ ){
+	if( str[i] == '(' ){
+		counterDiffr++;
+		counter++;
+	}else if( str[i] == ')' ){
+		counterDiffr--;
 		counter++;
 	}
-		if (str[i] == ")") {
-			counter--;
-		}
+	if(counterDiffr < 0) break;
 }
-if (counter == 0) {
-	document.write("the brackets are correct");
-}
-if (counter != 0) {
-	document.write("the brackets are ircorrect");
+	
+if( counter == 0 ) {
+	document.write("Empty");
+} 
+if( counterDiffr == 0 ){
+	document.write(str + "has correct braces");
+} 
+else {
+	document.write(str + "has ircorrect braces");
 }
 
