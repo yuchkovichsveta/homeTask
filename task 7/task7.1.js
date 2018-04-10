@@ -11,7 +11,7 @@ function createTable(N) {
 
 		for (var j = 0; j < N; j++) {
 			var td = document.createElement("td");
-			td.innerHTML = j;
+			//td.innerHTML = j;
 			tr.appendChild(td);
 		}
 		tbody.appendChild(tr);
