@@ -1,0 +1,36 @@
+        /*#wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+        }
+
+        #wrap.open{
+            display: block;
+        }
+
+        #wrap > div{
+            width: 50%;
+            margin: 50px;
+            padding: 20px;
+            background: #FFF;
+            background: red;
+        }
+
+*/
+    #tab .randomLight {
+        background: red;
+    }
+    
+    td {
+        width: 150px;
+        white-space: nowrap;
+        text-align: center;
+        vertical-align: bottom;
+        padding-top: 5px;
+        padding-bottom: 12px;
+        background: grey;
+    } 
