@@ -1,0 +1,91 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title></title>
+ 	<link rel="stylesheet" href="task 6.4.css" type="text/css">
+ </head>
+ <body>
+
+  <p id ="idCulcAll">
+    <input type="text" size="12" id="idCalcul" value="0" />
+    <input type="hidden" id="calcMemory" value="0" />
+    <input type="hidden" id="basePow" value="0" />
+    <input type="hidden" id="baseLog" value="0" />
+   
+
+    <div id = idCulcBody>
+      <div>  
+       	<input type="button" value="Clear" onclick='clearDisplay("0")'>  
+    	  <input type="button" value="M" onclick='saveToMemory()'>
+    	  <input type="button" value="MR" onclick='memoryRecall()'>
+    	  <input type="button" value="=" onclick='calculatorEvaluate()'>
+        <input type="button" value="1/x" onclick='getPow("-1")'> 
+        <input type="button" value="baseLog" onclick='baseLog()'>  
+        <input type="button" value="logAB" onclick='getAnyLog()'>  
+
+  	   </div>  
+
+        <div>  
+          <input type="button" value="sin" onclick='trigonometry("sin")'>  
+          <input type="button" value="cos" onclick='trigonometry("cos")'>
+          <input type="button" value="tan" onclick='trigonometry("tan")'>
+          <input type="button" value="arcsin" onclick='trigonometry("asin")'>
+          <input type="button" value="arccos" onclick='trigonometry("acos")'>
+          <input type="button" value="arctan" onclick='trigonometry("atan")'>
+           <input type="button" value="sqrt" onclick='getPow("1/2")'> 
+       </div> 
+
+  	   <div>
+          <input type="button" value="÷" onclick='valueof("/")'>
+          <input type="button" value="*" onclick='valueof("*")'>
+          <input type="button" value="С" onclick='backSpace()'>
+          <input type="button" value="." onclick='valueof(".")'> 
+          <input type="button" value="x^2" onclick='getPow("2")'> 
+          <input type="button" value="x^3" onclick='getPow("3")'> 
+          <input type="button" value="x^n" onclick='getAnyPow(2)'> 
+       </div>
+
+  	  <div>	  
+    	    <input type="button" value="7" onclick='valueof("7")'>
+          <input type="button" value="8" onclick='valueof("8")'> 
+          <input type="button" value="9" onclick='valueof("9")'> 
+          <input type="button" value="-" onclick='valueof("-")'>
+          <input type="button" value="x^(1/n)" onclick='getAnyPow(0.5)'>
+          <input type="button" value="Pi" onclick='getConst("Pi")'>
+          <input type="button" value="E" onclick='getConst("E")'>
+       </div>
+
+      
+       <div>
+    	     <input type="button" value="4" onclick='valueof("4")'>
+           <input type="button" value="5" onclick='valueof("5")'>
+           <input type="button" value="6" onclick='valueof("6")'>
+           <input type="button" value="+" onclick='valueof("+")'>
+           <input type="button" value="lnE" onclick='getConst("lnE")'>
+           <input type="button" value="log2E" onclick='getConst("log2E")'>
+           <input type="button" value="logE10" onclick='getConst("logE10")'>
+       </div>
+       
+        <div>
+    	     <input type="button" value="1" onclick='valueof("1")'>
+			     <input type="button" value="2" onclick='valueof("2")'>
+		    	 <input type="button" value="3" onclick='valueof("3")'>
+			     <input type="button" value="0" onclick='valueof("0")' >
+           <input type="button" value="basePow" onclick='basePow()'>
+           <input type="button" value="expPow" onclick='exponentPow()'>
+           <input type="button" value="backOne" onclick='backSpace()'>
+       </div>
+
+        <div>
+           <input type="button" value="f10to2Syst" onclick='from10to2Change()'>
+           <input type="button" value="f2to10Syst" onclick='from2to10Change()'>
+           <input type="button" value="f10to8Syst" onclick='from10to8Change()'>
+           <input type="button" value="f8to10Syst" onclick='from8to10Change()'>
+       </div>
+  
+    </div>
+ </p>
+ <script type="text/javascript" src="task6.4.js"></script>
+ </body>
+ </html>
+
