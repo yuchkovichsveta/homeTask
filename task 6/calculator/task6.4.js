@@ -8,7 +8,7 @@
 
         function calculatorEvaluate() {
             try {
-                var dispValue = eval(getInputValue("idCalcul"));
+                var dispValue = eval(getInputValue("idCalcul").toString());
                 if (dispValue.toString().indexOf("Infinity") !== -1)
                     dispValue = "Error";
                 document.getElementById("idCalcul").value = dispValue.toString();
@@ -21,7 +21,7 @@
         function checkForError() {
             var currentValue = getInputValue("idCalcul");
             if (currentValue.toString().indexOf("Error") === -1)
-                return false;
+                return false;//ошибки нет
             return true;
         }
 
@@ -36,7 +36,7 @@
         }
 
         function valueof(val) {
-            if (checkForError())
+            if (checkForError())//если ошибка, то выходим из метода
                 return;
             var currentValue = document.getElementById("idCalcul").value;
             if (currentValue === "0")

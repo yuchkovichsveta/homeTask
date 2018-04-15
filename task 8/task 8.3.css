@@ -1,0 +1,15 @@
+span {
+  cursor: pointer;
+}
+
+span:hover {
+  font-weight: 700;
+}
+
+.close {
+     display: none;
+ }
+
+ .open {
+     display: block;
+ }
