@@ -120,6 +120,8 @@
                           return  dispValue = clearDisplay(Math.LOG2E);
                     case 'logE10' : 
                           return  dispValue = clearDisplay(Math.LN10);
+                    case 'log2E' : 
+                          return  dispValue = clearDisplay(Math.round(Math.LOG2E * 100) / 100 );
 
                  }
 

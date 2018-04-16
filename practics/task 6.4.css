@@ -11,7 +11,7 @@
         }
 
         #idCulcBody {
-            width: 900px;
+            width: 830px;
             border: 1px solid #999;
             border-radius: 10px;
             padding: 10px;
@@ -20,6 +20,7 @@
         }
 
         #idCalcul {
+            width: 840px;
             font-size: 50px;
             background-color: lightgray;
             text-align: right;
