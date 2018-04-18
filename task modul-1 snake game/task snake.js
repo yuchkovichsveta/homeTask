@@ -45,7 +45,7 @@ function spawnSnake() {
   return snake;
 }
 
-function Cell() {
+function Cell() {/*table cell*/
   var cell = document.createElement("div");
   cell.className = "cell";
   return cell;
@@ -53,7 +53,7 @@ function Cell() {
 
 function Row(length) {
   if(!length) {
-    alert("Length of row is null!"); /* DEBUG */
+    alert("Length of row is null!"); 
   }
   
   var row = document.createElement("div");
@@ -66,9 +66,6 @@ function Row(length) {
 }
 
 function Field(size) {
-  if(!size) {
-    alert("Size of field is null!"); /* DEBUG */
-  }
   
   var field = document.createElement("div");
   field.className = "field";
@@ -115,7 +112,6 @@ function startGame() {
   snake = field.spawnSnake();
   
   points = document.getElementsByTagName("div")[0];
-  points.textContent = 0;
   
   spawnFood();
   intervalID = window.setInterval(snakeMotion, SNAKE_SPEED);
@@ -161,7 +157,7 @@ function snakeMotion() {
     nextCell.tail = snake;
     if (nextCell.eat) {
       spawnFood();
-      points.textContent++;
+     // points.textContent++;
     }
     var currentCell = snake.tail;
     var previousCell;
@@ -178,7 +174,7 @@ function snakeMotion() {
     currentCell.style.background = "";
   } else {
     window.setInterval = null;
-    var newGame = confirm("You lose with " + points.textContent + " points!\nCreate a new game?");
+    var newGame= confirm("You lose \nCreate a new game?");
     if (newGame) {
       document.getElementsByTagName("div")[1].removeChild(field);
       startGame();
