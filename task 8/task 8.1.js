@@ -1,4 +1,6 @@
 
+
+
   function clickInsideElement( e, className ) {
     var el = e.srcElement || e.target;  
     if ( el.classList.contains(className) ) {
@@ -106,8 +108,8 @@
     clickCoordsX = getPosition(e).x;
     clickCoordsY = getPosition(e).y;
 
-    menuWidth = menu.offsetWidth + 0;
-    menuHeight = menu.offsetHeight + 0;
+    menuWidth = menu.offsetWidth + 10;
+    menuHeight = menu.offsetHeight + 10;
 
     windowWidth = window.innerWidth;
     windowHeight = window.innerHeight;
