@@ -1,17 +1,39 @@
-<!DOCTYPE html>
-<head>
-  <meta charset="utf-8">
-  <title></title>
-</head>
-<body>
-  
-  
-<div id="block" class="block"></div>
+body {
+  background: khaki;
+}
 
+h1, h3, h4 {
+  color: darkslateblue;
+  text-align: center;
+}
 
+.field {
+  margin: 0 auto;
+  border-style: solid;
+  border-width: 4px;
+  border-color: powderblue;
+  width: 400px;
+  height: 400px;
+}
 
+.cell {
 
-<script src="task 8.2.js"></script>
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+  width: 18px;
+  height: 18px;
+  background-color: palegoldenrod;
+}
 
-</body>
-</html>
+.snake-cell {
+  display: inline-block;
+  background: green;
+  width: 20px;
+  height: 20px;
+}
+
+.row {
+  height: 20px;
+}
