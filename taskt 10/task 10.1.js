@@ -9,6 +9,8 @@
  var div = document.getElementById("time");
  var playbackspeed = 1;
  var flag = document.getElementById("infty");
+ var barContainer = document.getElementById("idbar");
+ console.log(barContainer);
 
 playBtn.addEventListener('click',function(e){
 	if(video.paused){
@@ -32,12 +34,6 @@ muteBtn.addEventListener('click',function(e){
 	
 })
 
-volumeBtn.addEventListener('click',function(e){
-	if(video){
-		
-	} 
-	
-})
 
 stopBtn.addEventListener('click',function(e){
 	if( !video.ended ) {
@@ -73,6 +69,30 @@ speedLessBtn.addEventListener('click',function(e){
 	
 })
 
+
+var range = document.getElementById('range');
+  
+ range.addEventListener('change', function(e) {
+    var p = document.getElementById('one'); 
+    //p.innerHTML = "volume:" + range.value;
+    if (this.value == this.min){
+       video.volume = 0;
+    } else if(this.value == this.max){
+       video.volume = 1;
+    }
+    else{
+    	 video.volume = this.value;
+    }
+})
+
+ barContainer.addEventListener('click', function(e){
+
+    var positionBar = document.getElementById("positionBar");
+    positionBar.style.width = (video.currentTime / video.duration * 100)  + "%";
+	
+	displayStatus = document.getElementById("displayStatus");
+    displayStatus.innerHTML = (Math.round(video.currentTime*100)/100) + "sec";
+})  
 
 
 video.addEventListener("loadedmetadata", function(){

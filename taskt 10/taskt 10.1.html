@@ -12,14 +12,26 @@
  	<div>
  		<button type="button" id="play">Play</button>
  	    <button type="button" id="stop">Stop</button>
-        <button type="button" id="volume">Volume</button>
+
+ 	    <input id="range" type="range" min="0" max="1" step="0.0001" value="0.5">
+ 	    <p id="one"> </p>
+ 	   
         <button type="button" id="mute">Muted</button>
         <button type="button" id="speedMore">Speed +0.5x</button>
         <button type="button" id="speedLess">Speed -0.5x</button>
         <input type="checkbox" id ="infty" value="looping">
         <label for="infty">looping</label>
  	</div>
- 		<div id="time"></div>
+
+ 	<div class="barContainer" id = "idbar" width="200px"> <p></p>
+        <div id="durationBar">
+           <div id="positionBar">
+           	   <span id="displayStatus">0</span>
+           	</div>
+       </div>
+    </div>
+    
+    <div id="time"></div>
     
  	
  
