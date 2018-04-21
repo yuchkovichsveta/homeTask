@@ -1,8 +1,24 @@
+#idborder{
+	width: 600px;
+	height: 500px;
+	padding: 0px;
+	margin: 0px;
+	align-content: center;
+
+	/*background-color: paleturquoise;*/
+}
+video {
+	padding: 0px;
+	margin: 0px;
+}
 button{
 	width: 100px;
 	height: 30px;
 }
 
+#idbar{
+	width: 600px;
+}
 #positionBar {
    height: 30px;
    color: white;
@@ -18,6 +34,5 @@ button{
 
 #durationBar {
    border: solid 1px blue;
-  
    margin-bottom: 5px;
 }

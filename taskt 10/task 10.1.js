@@ -69,12 +69,10 @@ speedLessBtn.addEventListener('click',function(e){
 	
 })
 
-
 var range = document.getElementById('range');
   
  range.addEventListener('change', function(e) {
-    var p = document.getElementById('one'); 
-    //p.innerHTML = "volume:" + range.value;
+ 
     if (this.value == this.min){
        video.volume = 0;
     } else if(this.value == this.max){
@@ -85,14 +83,12 @@ var range = document.getElementById('range');
     }
 })
 
- barContainer.addEventListener('click', function(e){
-
+function progressUpdate() {
     var positionBar = document.getElementById("positionBar");
     positionBar.style.width = (video.currentTime / video.duration * 100)  + "%";
-	
-	displayStatus = document.getElementById("displayStatus");
-    displayStatus.innerHTML = (Math.round(video.currentTime*100)/100) + "sec";
-})  
+	var displayStatus = document.getElementById("displayStatus");
+    displayStatus.innerHTML = Math.round((video.currentTime / video.duration * 100))  + "%";
+  }
 
 
 video.addEventListener("loadedmetadata", function(){
