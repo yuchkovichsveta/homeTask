@@ -1,30 +1,56 @@
+/**
+ * @autor Yuchkovich Svetlana
+ * @version 1.0
+*/
 
-
+/** Класс Product служит для хранения объектов с полями
+ *id, name, type, price, data.
+  @constructor
+  @this  {Product}
+*/
 
 var index = 0;
 function Product(name, type, price, date){
+	/** Поля */
 	this.id = ++index;
 	this.name = name;
 	this.type = type;
 	this.price = price;
-	this.date=new Date(date); 
+	this.date = new Date(date); 
 }
+
+/** Класс  WareGoods служит для хранения объектов с полями
+ * name, type, price, data, validDate.
+   @constructor
+   @this  {WareGoods}
+*/
 
 function WareGoods(name, type, price, date, validDate){
 	
+	/** 
+	 * @param  {this, arguments} 
+     * @return {Circle} Новый объект Circle. 
+	*/
 	Product.apply(this, arguments);
 	this.validDate = new Date(validDate);
-	
+
+	/** Свойство для чтения значения срока хранения {@link Product#maker}
+         * @return {numver} hours Rоличество срок хранения в часах
+    */
 	Object.defineProperty(this, "storagePeriod",{
 		get: function(){
 			var hours = Math.round((this.date - this.validDate) / 1000 / 60 / 60/ 24) + " hours";
-
 			return hours; 
 		},
-		//writable: true,
         enumerable: false
 	})
 }
+
+/** Класс  Shop служит для хранения объектов с полями
+ * name, adress, products, benefit, overPrice
+   @constructor
+   @this  {Shop}
+*/
 
 function Shop(name, adress, products, benefit, overPrice){
 	this.name = name;
@@ -33,6 +59,10 @@ function Shop(name, adress, products, benefit, overPrice){
 	this.benefit = benefit;
 	this.overPrice = overPrice;
 	
+	/** Свойство для нахождения значения общеq суммы стоимости товаров магазина 
+		 * this {Shop}
+         * @return {number} sum Стоимость товаров 
+    */
 	Object.defineProperty(this, "totalPrice",{
 		get: function(){
 			var sum = 0;
@@ -43,18 +73,34 @@ function Shop(name, adress, products, benefit, overPrice){
 		}
 	})
 }
+ 
+ /** Метод для добавления товара t в количестве n в магазин 
+		 * this {Shop}
+         * @return {Array} products Массив, состоящий из товаров 
+ */
 
 Shop.prototype.addProduct = function (t, n){
    for (var i = 0; i < n; i++) {
    	   this.products.push(t);
    }
+   return this.products;
 }
+
+ /** Метод для отображения информации о магазине 
+		 * this {Shop}
+         * @return {String} strInfo Строка, содержащая информацию о магазине
+ */
 
 Shop.prototype.printInfo = function (){
 	var strInfo = 0;
 		strInfo = " shopName:" + this.name + ", benefit = " + this.benefit + ", overPrice = " + this.overPrice + "; ";
 		return strInfo;
 }
+
+ /** Метод для отображения информации о продаже товара
+		 * this {Shop}
+         * @return {String} strInfo Строка, содержащая информацию о проданном товаре
+ */
 
 Shop.prototype.sellProduct = function (id) {
 	var strInfo ="";
@@ -67,6 +113,11 @@ Shop.prototype.sellProduct = function (id) {
 	return strInfo;
 }
 
+ /** Метод для отображения информации о негодности товара
+		 * this {Shop}
+         * @return {String} strInfo Строка, содержащая информацию о испорченном товаре
+ */
+
 Shop.prototype.deleteProduct = function (id) {
 	var strInfo ="";
 	for (var i = 0; i < shop.products.length; i++) {
@@ -78,6 +129,10 @@ Shop.prototype.deleteProduct = function (id) {
 	return strInfo;
 }
 
+ /** Метод для отображения информации о негодности товара
+		 * @param {market} Рынок
+         * @return {String} strInfo Строка, содержащая информацию о названиях магазинов, находящихся на рынке
+ */
 function printShopNames(market){
 	var strShops = "Shops names:";
 	for (var i = 0; i < market.shops.length; i++) {
@@ -87,6 +142,11 @@ function printShopNames(market){
 	}
 	return strShops;
 }
+
+ /** Метод для отображения информации о негодности товара
+		 * @param {market} Рынок
+         * @return {String} strInfo Строка, содержащая информацию о статистике магазинов, находящихся на рынке
+ */
 
 function printStatistics(market){
 	var strShops = "Shops Statistics: ";
