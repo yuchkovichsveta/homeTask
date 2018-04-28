@@ -2,9 +2,10 @@
 var button = document.getElementById("idBut");
   
 button.addEventListener('click', function(e) {
-  //var path = "http://localhost/12/" + document.getElementById("idInput").value;
+  var path = String(document.getElementById("idInput").value);
+ // var path = "url.txt";
   var xhr = new XMLHttpRequest;
-  xhr.open("GET", "http://localhost/12/"+document.getElementById("idInput").value, true);
+  xhr.open("GET", path, true);
   var div = document.getElementById("app").appendChild(document.createElement("div")); 
   div.innerHTML = "downloading";
 
