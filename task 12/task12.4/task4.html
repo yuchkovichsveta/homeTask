@@ -1,0 +1,37 @@
+<div> N = 12;
+<script type="text/javascript">
+var N = 12;
+
+onload = function() {
+    var table, row, cell;
+    table = document.getElementById("container").appendChild(document.createElement("table"));
+
+    for( var i = 0; i < N; i++) {
+        row = table.insertRow(i);
+
+        for( var j = 0; j < N; j++) {
+            if ( i == 0 ) {
+                cell = row.appendChild(document.createElement("th"));
+                cell.innerHTML = (j != 0) ? j + 1 : " ";
+            }
+            else{
+                if (j == 0){
+                    cell = row.appendChild(document.createElement("th"));
+                    cell.innerHTML = i+1;}
+                else{
+                    cell = row.insertCell(j);
+                    if (i == j) {
+                        cell.style.color = "red";
+                    }
+                    cell.innerHTML = ( j + 1 ) * ( i + 1 );
+                }
+            }
+        }
+    };
+ 
+ };
+
+
+</script>	
+</div>
+ 	
