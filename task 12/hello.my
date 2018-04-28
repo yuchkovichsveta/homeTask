@@ -1,0 +1,2 @@
+ 	<button id = "idBut"> Ops </button>
+ 	<input id = "idInput" type="text" name="text">
