@@ -1,24 +1,3 @@
-/*function sum(...nums){
-  let sum = 0;
-  for (let i in nums) {
-    sum += nums[i]
-  }
- return sum;
-}
-
-sum(5,7);
-console.log(sum(1,2,3,4,5,6));
-
-//var div = document.getElementById("idDiv");
-console.log(sum(5,7));*/
-
-
-
-/*
-var s1 = Symbol();
-var s2 = Symbol();
-console.log(s1 == s2);*/
-
 var div = document.getElementById("idDiv");
 
 class Task{
@@ -39,6 +18,16 @@ class TaskPlan {
     addTask(task) {
        var newtaskPlan =  this.taskPlan.push(task);
        return  newtaskPlan;
+    }
+
+    addTaskArr(x, ...arr){
+      var newtaskPlan = this.taskPlan;
+      newtaskPlan = this.taskPlan.push(x); 
+      for (var i = 0; i < arr.length; i++) {
+        newtaskPlan = this.taskPlan.push(arr[i]); 
+        //console.log("111");
+      }
+       return newtaskPlan;
     }
 
      deleteTask(taskIndex) {
@@ -103,18 +92,20 @@ var task5 = new Task("task5", 1, new Date(now.getFullYear(), now.getMonth(), now
 var task6 = new Task("task6", 2, new Date(tommorow.getFullYear(), tommorow.getMonth(), tommorow.getDate()));
 
 var arr = new Array(task1, task2, task3, task4, task6);
+var arr1 = [task1, task2];
 var taskPlan = new TaskPlan(arr);
 var taskPlan2 = new TaskPlan(arr);
 
 
  document.write("Initial taskPlan: <br></br> ");
 
-taskPlan2.printTaskPlan();
+taskPlan.printTaskPlan();
 
 document.write("taskPlan after addition of task5: <br></br> ");
 
 taskPlan.addTask(task5);
 taskPlan.printTaskPlan();
+
 
 document.write("taskPlan after sort by priority: <br></br> ");
 taskPlan.getListByPriority();
@@ -129,30 +120,22 @@ taskPlan.getTasksForToday();
 
 document.write("taskPlan for tommorow: <br></br> ");
 taskPlan.getTasksForTommorow();
-//taskPlan.printTaskPlan();
 
 
 
+document.write("taskPlan after using SPREAD (x = task2, ...arr = [task1, task2]): <br></br> ");
+
+taskPlan.addTaskArr(task2, ...arr1);
+//taskPlan.addTaskArr(task1, task6, task2);
+taskPlan.printTaskPlan();
 
 
+document.write("taskPlan after using SPREAD (x = task1, ...arr = [task4, task5, task3]): <br></br> ");
+var arr1 = [task4, task5, task3];
 
-/*
-class Human{
-  constructor(name, age){
-    this.name = name;
-    this.age = age;
-  }
-  sayHi(){
-    console.log(`Hi Its ${this.name}`);
-  }
-}
-
-var alex = new Human("Alex", 22);
-alex.sayHi();*/
-
-
-
-
+taskPlan.addTaskArr(task1, ...arr1);
+//taskPlan.addTaskArr(task1, task6, task2);
+taskPlan.printTaskPlan();
 
 
 /*
