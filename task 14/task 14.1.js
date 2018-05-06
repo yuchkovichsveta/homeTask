@@ -82,7 +82,6 @@ class TaskPlan {
          for (var i = 0; i < this.taskPlan.length; i++) {
             if(now.getDate() ==  this.taskPlan[i].endDate.getDate() ){
                  document.write(this.taskPlan[i].name + " | " + this.taskPlan[i].priority + " | " + this.taskPlan[i].endDate + iter.next().done + "<br></br>");
-                 console.log(iter.next());
             }
          } 
         
@@ -97,8 +96,7 @@ class TaskPlan {
         for (var i = 0; i < this.taskPlan.length; i++) {
             if(tommorow.getDate() ==  this.taskPlan[i].endDate.getDate()){
               document.write(this.taskPlan[i].name + " | " + this.taskPlan[i].priority + " | " + this.taskPlan[i].endDate  + iter.next().done + "<br></br>");
-              console.log(iter.next());
-
+            
          }
        } 
     }
