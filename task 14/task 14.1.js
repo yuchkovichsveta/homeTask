@@ -74,12 +74,40 @@ class TaskPlan {
          }
        } 
        } 
+
+      getTasksForTodayUsingIterator(){
+         var now = new Date();
+         var iter = this.taskPlan[Symbol.iterator]();
+         document.write("<b>name|</b> " + " <b> priority| </b>" + " <b> endDate </b> "+ " | iter.next.done <br></br> ");  
+         for (var i = 0; i < this.taskPlan.length; i++) {
+            if(now.getDate() ==  this.taskPlan[i].endDate.getDate() ){
+                 document.write(this.taskPlan[i].name + " | " + this.taskPlan[i].priority + " | " + this.taskPlan[i].endDate + iter.next().done + "<br></br>");
+                 console.log(iter.next());
+            }
+         } 
+        
+         console.log(iter.next());
+      }
+
+      getTasksForTommorowUsingIterator(){
+        var tommorow = new Date();
+         var iter = this.taskPlan[Symbol.iterator]();
+        tommorow.setTime(tommorow.getTime()+1000*60*60*24);
+        document.write("<b>name|</b> " + " <b> priority |</b>" + " <b> endDate </b> "+ " | iter.next.done <br></br> ");  
+        for (var i = 0; i < this.taskPlan.length; i++) {
+            if(tommorow.getDate() ==  this.taskPlan[i].endDate.getDate()){
+              document.write(this.taskPlan[i].name + " | " + this.taskPlan[i].priority + " | " + this.taskPlan[i].endDate  + iter.next().done + "<br></br>");
+              console.log(iter.next());
+
+         }
+       } 
+    }
+       
 }
 
 var now = new Date();
 var tommorow = new Date();
 tommorow.setTime(tommorow.getTime()+1000*60*60*24);
-
 
 var task1 = new Task("task1", 1, new Date(now.getFullYear(), now.getMonth(), now.getDate()));
 console.log(task1);
@@ -92,12 +120,11 @@ var task5 = new Task("task5", 1, new Date(now.getFullYear(), now.getMonth(), now
 var task6 = new Task("task6", 2, new Date(tommorow.getFullYear(), tommorow.getMonth(), tommorow.getDate()));
 
 var arr = new Array(task1, task2, task3, task4, task6);
-var arr1 = [task1, task2];
+var arr1 = [task3, task2];
 var taskPlan = new TaskPlan(arr);
 var taskPlan2 = new TaskPlan(arr);
 
-
- document.write("Initial taskPlan: <br></br> ");
+document.write("Initial taskPlan: <br></br> ");
 
 taskPlan.printTaskPlan();
 
@@ -105,7 +132,6 @@ document.write("taskPlan after addition of task5: <br></br> ");
 
 taskPlan.addTask(task5);
 taskPlan.printTaskPlan();
-
 
 document.write("taskPlan after sort by priority: <br></br> ");
 taskPlan.getListByPriority();
@@ -121,95 +147,15 @@ taskPlan.getTasksForToday();
 document.write("taskPlan for tommorow: <br></br> ");
 taskPlan.getTasksForTommorow();
 
-
-
-document.write("taskPlan after using SPREAD (x = task2, ...arr = [task1, task2]): <br></br> ");
-
+document.write("taskPlan after using SPREAD (x = task2, ...arr = [task3, task2]): <br></br> ");
 taskPlan.addTaskArr(task2, ...arr1);
-//taskPlan.addTaskArr(task1, task6, task2);
 taskPlan.printTaskPlan();
-
 
 document.write("taskPlan after using SPREAD (x = task1, ...arr = [task4, task5, task3]): <br></br> ");
-var arr1 = [task4, task5, task3];
-
+var arr1 = [task4, task3, task5];
 taskPlan.addTaskArr(task1, ...arr1);
-//taskPlan.addTaskArr(task1, task6, task2);
 taskPlan.printTaskPlan();
 
+document.write("testing of iterator  <br></br> ");
+taskPlan.getTasksForTodayUsingIterator();
 
-/*
-var arr = [1,3, false, "sfsdf"];
-var iter = arr[Symbol.iterator]();
-
-console.log(iter.next());
-console.log(iter.next());
-
-console.log(iter.next());*/
-
-
-
-/*
-var Fibonachi = {
-  max : 1000,
-  [Symbol.iterator](){
-    var self = this;
-    var a = 0, b = 1;
-    var iter = {
-      next() {
-
-        let value = a + b;
-        b = a;
-        a = value;
-        let done = value > self.max;
-        return {value, done};
-      }
-    }
-    return iter;
-  }
-}
-
-for (var num of Fibonachi){
-  console.log(num);
-}
-*/
-
-
-
-
-
-/*
-function * generator(){
-  yield 1;
-  console.log(1);
-  yield 3;
-  console.log(3);
-  yield 6;
-  console.log(6);
-  return;
-}
-
-var iter = generator();
-for (var o of iter) {
-  console.log(o);
-}*/
-
-/*
-function * generator(n){
-  var max = n;
-  var a = 1, b = 0;
-  var value = 1;
-  while(value < max) {
-    yield value;
-    var tmp = value;
-    value = a+b;
-    b = a;
-    a = tmp;
-  }
-}
-
-
-var iter = generator(1000);
-for (var o of iter) {
-  console.log(o);
-}*/
