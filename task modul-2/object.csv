@@ -1,0 +1,5 @@
+name, age, dateStart, datebirth, salary, department, post
+Name1, 23, 2018-04-04, 1992-03-17, 300, company, director
+Name2, 24,2016-07-04 , 1998-04-15, 400, company, worker 
+Name3, 50, 2015-12-04, 2005-05-05, 600, company, worker2
+Name4, 50, 2015-12-04, 2005-05-05, 600, company, worker2
