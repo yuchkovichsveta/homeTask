@@ -1,0 +1,12 @@
+td{
+		border: 2px solid black;
+		width: 150px;
+		height: 60px;
+		text-align: center;
+		background-color: cornsilk;
+	}
+	#container{
+		width: auto;
+		float: left;
+	}
+	
