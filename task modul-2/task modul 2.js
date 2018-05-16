@@ -56,7 +56,7 @@ var addBody = function(tr, elem, index, column) {
 	}
 }
 
-var sortAscending = function(arr, arrTr) {
+var sortCol = function(arr, arrTr) {
 	let len = arr.length;
 	let lenTr = arrTr.length;
 		for (let i = 1; i < lenTr ; i++) {
@@ -90,13 +90,13 @@ var sortDate = function(arr, arrTr) {
 
 container.addEventListener("click", function(e){
 	if(e.target.getAttribute("class") == "sort"){
-		let buff = e.target.parentNode.getAttribute("class");
-		var arrColumnn = document.getElementsByClassName(buff);
+		let temp = e.target.parentNode.getAttribute("class");
+		var arrCol = document.getElementsByClassName(temp);
 		var arrTr = document.querySelectorAll("tr");
-		if(buff == "column2" || buff == "column3") {
-			sortDate(arrColumnn, arrTr);
+		if( temp == "column2" || temp == "column3") {
+			sortDate(arrCol, arrTr);
 		} else {
-			sortAscending(arrColumnn, arrTr);
+			sortCol(arrCol, arrTr);
 		}
 	}
 })
