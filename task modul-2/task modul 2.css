@@ -1,12 +1,18 @@
 td{
-		border: 2px solid black;
+		border: 2px solid blue;
 		width: 150px;
 		height: 60px;
 		text-align: center;
 		background-color: cornsilk;
-	}
-	#container{
-		width: auto;
-		float: left;
-	}
+}
+
+#container{
+	   width: auto;
+	   float: left;
+}
 	
+
+button{
+	margin: 5px;
+	padding: 5px;
+}

@@ -19,6 +19,23 @@ ajaxLoad("data.csv", function(t) {
 	addTable(arr);
 })
 
+var sortDate = function(arr, arrTr) {
+	let len = arr.length;
+	let lenTr = arrTr.length;
+	for (let i = 1; i < lenTr ; i++) {
+		for(let j = 1; j < len-1; j++){
+			let a = new Date(arr[j].outerText);
+			let b = new Date(arr[j+1].outerText);
+			let temp = 0;
+			if (a > b) {
+				temp = arrTr[j + 1].outerHTML;
+				arrTr[j + 1].innerHTML = arrTr[j].outerHTML;
+				arrTr[j].innerHTML = temp;
+			}
+		}
+	}
+}
+
 var addTable = function(obj) {
 	obj.forEach(function (e, ind) {
 		var column = 0;
@@ -30,30 +47,6 @@ var addTable = function(obj) {
    		}
    		tbody.appendChild(tr);
 	});
-}
-
-var addHeader = function(tr, elem, index, column) {
-	for(let emp of elem) {
-		let td = document.createElement("td");
-		td.innerText = emp;
-		td.setAttribute("class", `column${column}`);
-		let button = document.createElement("button");
-		button.setAttribute("class", "sort");
-		button.innerText = "sort";
-		td.appendChild(button);
-		tr.appendChild(td);
-		column++;
-	}
-}
-
-var addBody = function(tr, elem, index, column) {
-	for(let emp of elem) {
-	 	let td = document.createElement("td");
-		td.innerText = emp;
-		td.setAttribute("class", `column${column}`);
-		tr.appendChild(td);
-		column++;
-	}
 }
 
 var sortCol = function(arr, arrTr) {
@@ -71,22 +64,34 @@ var sortCol = function(arr, arrTr) {
 	}
 }
 
-var sortDate = function(arr, arrTr) {
-	let len = arr.length;
-	let lenTr = arrTr.length;
-	for (let i = 1; i < lenTr ; i++) {
-		for(let j = 1; j < len-1; j++){
-			let a = new Date(arr[j].outerText);
-			let b = new Date(arr[j+1].outerText);
-			let temp = 0;
-			if (a > b) {
-				temp = arrTr[j + 1].outerHTML;
-				arrTr[j + 1].innerHTML = arrTr[j].outerHTML;
-				arrTr[j].innerHTML = temp;
-			}
-		}
+
+var addHeader = function(tr, elem, index, column) {
+	for(let i of elem) {
+		let td = document.createElement("td");
+		td.innerText = i;
+		td.setAttribute("class", `column${column}`);
+		let button = document.createElement("button");
+		button.setAttribute("class", "sort");
+		button.innerText = "sort";
+		td.appendChild(button);
+		tr.appendChild(td);
+		column++;
 	}
 }
+
+var addBody = function(tr, elem, index, column) {
+	for(let i of elem) {
+	 	let td = document.createElement("td");
+		td.innerText = i;
+		td.setAttribute("class", `column${column}`);
+		tr.appendChild(td);
+		column++;
+	}
+}
+
+
+
+
 
 container.addEventListener("click", function(e){
 	if(e.target.getAttribute("class") == "sort"){
