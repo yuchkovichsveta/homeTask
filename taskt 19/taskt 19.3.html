@@ -1,0 +1,39 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ 	<title></title>
+    <link rel="stylesheet" type="text/css" href="task 19.3.css">
+ 	
+ </head>
+ <body>
+
+  <input type="file" onchange="previewFile()"><br>
+
+ 	<div id ="idborder">
+    <video src="" width="600px" height="200px" onTimeUpdate="progressUpdate()"></video>
+ 	<div>
+
+ 		<button type="button" id="play">Play</button>
+ 	    <button type="button" id="stop">Stop</button> 
+        <button type="button" id="mute">Muted</button>
+        <button type="button" id="speedMore">Speed +0.5x</button>
+        <button type="button" id="speedLess">Speed -0.5x</button>
+        <input type="checkbox" id ="infty" value="looping">
+        <label for="infty">looping</label>
+ 	</div>
+
+ 	<div class="barContainer" id = "idbar"> <p></p>
+        <div id="durationBar">
+           <div id="positionBar">
+           	   <span id="displayStatus">0</span>
+           	</div>
+       </div>
+    </div>
+    
+    <div id="time"></div>
+    <input id="range" type="range" min="0" max="1" step="0.0001" value="0.5">
+   </div>
+ 
+ <script type="text/javascript" src="task 19.3.js"></script>
+ </body>
+ </html>
