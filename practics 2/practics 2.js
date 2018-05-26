@@ -5,7 +5,7 @@ window.onload = function() {
 
 	document.getElementById("reset").addEventListener('click', function(event) {
 		resetGame();
-}	
+	}	
 );					
 
 
@@ -16,13 +16,13 @@ function shift(arr,i1,j1,i2,j2) {
 }
 
 
-function resetGame(){
+function resetGame() {
 	for(let i = 0; i < 4; ++i ) {
 			arr[i] = [];
 
 			for(j = 0; j < 4; ++j) {
 				if (i + j != 6) {
-					arr[i][j] = i*4 + j + 1;
+					arr[i][j] = i * 4 + j + 1;
 				}
 				else {
 					arr[i][j] = "";
@@ -34,10 +34,10 @@ function resetGame(){
 
 		for(i = 0; i < 160; ++i) {//настраиваем степень разброса
 			switch(Math.round(3*Math.random())){ //replace 
-				case 0: if(ei != 0) shift(arr,ei,ej,--ei,ej); break; // up
-				case 1: if(ej != 3) shift(arr,ei,ej,ei, ++ej); break; // right
-				case 2: if(ei != 3) shift(arr,ei,ej,++ei,ej); break; // down
-				case 3: if(ej != 0) shift(arr,ei,ej,ei,--ej); // left
+				case 0: if(ei != 0) shift(arr, ei, ej, --ei, ej); break; // up
+				case 1: if(ej != 3) shift(arr, ei, ej, ei, ++ej); break; // right
+				case 2: if(ei != 3) shift(arr, ei, ej, ++ei, ej); break; // down
+				case 3: if(ej != 0) shift(arr, ei, ej, ei, --ej); // left
 		 	}
 		}
 			
@@ -52,7 +52,7 @@ function resetGame(){
 		for(j = 0; j < 4; ++j) {
 			var cell = document.createElement("td");
 				cell.id = i + " " + j;
-				cell.addEventListener('click', function (event){
+				cell.addEventListener('click', function (event) {
 					clickCell(event);
 				});
 				cell.innerHTML = arr[i][j];
@@ -83,7 +83,7 @@ function clickCell(event) {
 
 		for(i = 0; i < 4; ++i)
 			for(j = 0; j < 4; ++j)
-				if(i + j != 6 && document.getElementById(i + " " + j).innerHTML != i*4 + j + 1){
+				if(i + j != 6 && document.getElementById(i + " " + j).innerHTML != i*4 + j + 1) {
 					result = false;
 					break;
 				}
