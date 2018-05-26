@@ -1,0 +1,35 @@
+body {
+	background-color: darkseagreen;
+}
+
+body {
+	background-color:darkseagreen;
+}
+	
+#reset {
+	border:solid 1px slategray;
+	background-color:darkseagreen;
+	color: honeydew;
+	margin-top: 10px;
+}
+	
+td {				
+	text-align:center;				
+	font-family:Times New Roman;
+	color: mediumaquamarine;
+	vertical-align: middle;				
+}
+#box td {
+	border:solid 1px slategray;
+	text-align:center;
+	font-size:40px;
+	font-family:Times New Roman;
+	color: teal;
+	width: 55px;
+	height: 55px;
+}
+
+#box td:hover {
+	color:white;
+	cursor: hand;
+}
